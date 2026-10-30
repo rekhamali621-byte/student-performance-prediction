@@ -58,9 +58,14 @@ y = df['Scores']
 model = LinearRegression()
 model.fit(X, y)
 
-predicted_score = model.predict(pd.DataFrame({'Study_Hours': [6]}))
+# Take input from the user
+hours = float(input("Enter study hours: "))
 
-print("Predicted score for 6 study hours:", predicted_score[0])
+# Predict student score
+new_data = pd.DataFrame({'Study_Hours': [hours]})
+predicted_score = model.predict(new_data)
+
+print("Predicted student score:", round(predicted_score[0], 2))
 
 #Model Evaluation
 
